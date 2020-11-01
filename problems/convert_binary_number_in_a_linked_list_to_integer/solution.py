@@ -11,3 +11,4 @@ class Solution:
             head=head.next
         return((int(str_,2)))
         
+        
