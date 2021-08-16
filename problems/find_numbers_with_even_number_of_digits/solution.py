@@ -1,5 +1,12 @@
 class Solution:
     def findNumbers(self, nums: List[int]) -> int:
-        new=map(str,nums)
-        return len([len(i) for i in new if len(i)%2==0])
+        even=0
+        for i in nums:
+            i=math.floor(math.log10(i))+1
+            print(i)
+            if not i%2:
+                even+=1
+        return even
+                
+                
         
