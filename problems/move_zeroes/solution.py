@@ -3,23 +3,21 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        '''j=len(nums)-1
-        i=len(nums)-1
-        while i>=0:
-            if nums[i]==0:
-                tmp=nums[j]
-                nums[j]=0
-                nums[i]=tmp
-                j-=1
-            i-=1'''
-    
-        i=0
-        stop=nums.count(0)
+        cnt=nums.count(0)
+        if cnt==len(nums) or cnt==0:
+            return
+        idx=nums.index(0)
+        i=idx
+        for j in range(idx+1, len(nums)):
+            if nums[j]!=0:
+                nums[i]=nums[j]
+                i+=1
+        nums[len(nums)-cnt:]=[0]*cnt
         
-        while i<len(nums)-stop:
-            if nums[i]==0:
-                nums.append(0)
-                del nums[i]
-                continue
-            i+=1
+#         pos = 0
         
+#         for i in range(len(nums)):
+#             el = nums[i]
+#             if el != 0:
+#                 nums[pos], nums[i] = nums[i], nums[pos]
+#                 pos += 1
