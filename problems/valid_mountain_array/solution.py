@@ -1,22 +1,47 @@
 class Solution:
-    def validMountainArray(self, A: List[int]) -> bool:
-        length=len(A)
-        
-        if length<3:
+    def validMountainArray(self, arr: List[int]) -> bool:
+        if len(arr)<3:
             return False
         
-        first=[A[0]]+[A[i] for i in range(1,length) if A[i]>A[i-1]]
-        last=[A[i+1] for i in range(0,length-1) if A[i]>A[i+1]]
+        for i in range(len(arr)-1):
+            if arr[i]==arr[i+1]:
+                return False
+            
+        pivot=len(arr)
+        for i in range(len(arr)-1):
+            if arr[i]>arr[i+1]:
+                pivot=i
+                break
+        print(pivot)
         
-        if len(last)==0 or len(first)==1:
+        if pivot == len(arr) or pivot == 0:
             return False
         
-        if first+last!=A:
-            return False
-    
-        
-        
-        
-        
+        for i in range(pivot-1):
+            if arr[i]>arr[i+1]:
+                return False
+            
+        for j in range(pivot,len(arr)-1):
+            if arr[j]<arr[j+1]:
+                return False
+            
         return True
+    
+                
         
+#         N = len(A)
+#         i = 0
+
+#         # walk up
+#         while i+1 < N and A[i] < A[i+1]:
+#             i += 1
+
+#         # peak can't be first or last
+#         if i == 0 or i == N-1:
+#             return False
+
+#         # walk down
+#         while i+1 < N and A[i] > A[i+1]:
+#             i += 1
+
+#         return i == N-1
