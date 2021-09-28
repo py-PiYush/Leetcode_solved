@@ -22,6 +22,16 @@ class Solution:
         temp.next = l1 or l2
         return list.next
        
+        
+        #recursive
+        if not l1 or not l2:
+            return l1 or l2
+        if l1.val < l2.val:
+            l1.next = self.mergeTwoLists(l1.next, l2)
+            return l1
+        else:
+            l2.next = self.mergeTwoLists(l1, l2.next)
+            return l2
             
             
         
