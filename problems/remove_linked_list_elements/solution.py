@@ -13,4 +13,16 @@ class Solution:
             else:
                 curr=curr.next
         return dummy.next
+    
+    
+        #<--------------recursive--------->
+        
+#         if not head:
+#             return None
+        
+#         if head.val == val:
+#             return self.removeElements(head.next, val)
+#         else:
+#             head.next = self.removeElements(head.next, val)
+#             return head  
             
