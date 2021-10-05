@@ -3,21 +3,24 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        cnt=nums.count(0)
-        if cnt==len(nums) or cnt==0:
-            return
-        idx=nums.index(0)
-        i=idx
-        for j in range(idx+1, len(nums)):
-            if nums[j]!=0:
-                nums[i]=nums[j]
-                i+=1
-        nums[len(nums)-cnt:]=[0]*cnt
         
-#         pos = 0
+    
+#         i=0
+#         stop=nums.count(0)
         
-#         for i in range(len(nums)):
-#             el = nums[i]
-#             if el != 0:
-#                 nums[pos], nums[i] = nums[i], nums[pos]
-#                 pos += 1
+#         while i<len(nums)-stop:
+#             if nums[i]==0:
+#                 nums.append(0)
+#                 del nums[i]
+#                 continue
+#             i+=1
+            
+            
+        pt1 = 0
+        pt2 = 0
+        n = len(nums)
+        while(pt2<n):
+            if (nums[pt2]!= 0):
+                nums[pt1], nums[pt2] = nums[pt2], nums[pt1] # SWAP 
+                pt1 += 1
+            pt2 += 1
