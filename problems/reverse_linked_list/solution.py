@@ -5,6 +5,8 @@
 #         self.next = next
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        
+        '''---RECURSIVE---'''
         # print(head.val)
         # if head==None or head.next==None:
         #     return head
@@ -14,6 +16,7 @@ class Solution:
         # head.next=None
         # return p
         
+        '''---ITERATIVE---'''
         prev=None
         
         while head:
