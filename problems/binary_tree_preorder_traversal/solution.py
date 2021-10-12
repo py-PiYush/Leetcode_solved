@@ -31,3 +31,14 @@ class Solution:
                 root=root.right
         return res
     
+#         if not root: return []
+#         stack=[root.right, root.left, root.val]
+#         while stack:
+#             temp=stack.pop()
+#             if temp:
+#                 if isinstance(temp, TreeNode):
+#                     stack+=[temp.right, temp.left, temp.val]
+                    
+#                 else:
+#                     res.append(temp)
+#         return res
