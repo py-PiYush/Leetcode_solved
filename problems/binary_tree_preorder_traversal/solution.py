@@ -19,6 +19,19 @@ class Solution:
 #         return res
     
         '''---ITERATIVE---'''
+        stack=[root]
+        if not root:
+            return res
+        while stack:
+            node=stack.pop()
+            res.append(node.val)
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+        return res
+        
+        
         stack=[]
         if not root: return []
         while root or stack:
@@ -30,6 +43,7 @@ class Solution:
                 root=stack.pop()
                 root=root.right
         return res
+    
     
 #         if not root: return []
 #         stack=[root.right, root.left, root.val]
