@@ -1,21 +1,26 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        '''from collections import Counter
-        lst=Counter(nums)
-        mj=len(nums)//2
-        for i in lst:
-            if lst[i]>mj:
-                return i'''
+        
+        #Using Counter
+#         from collections import Counter
+        
+#         lst=Counter(nums)
+#         mj=len(nums)//2
+#         for i in lst:
+#             if lst[i]>mj:
+#                 return i
         
         #Boyer-Moore:
-        def bm():
-            cnt=0
-            for i in nums:
-                if cnt==0:
-                    ans=i
-                cnt+=(1 if i==ans else -1)
-            return ans
-        return bm()
+        # def bm():
+        #     cnt=0
+        #     for i in nums:
+        #         if cnt==0:
+        #             ans=i
+        #         cnt+=(1 if i==ans else -1)
+        #     return ans
+        # return bm()
+        
+        
                 
         def solve(lo,hi):
             mid=lo+((hi-lo)//2)
