@@ -1,13 +1,8 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        maps={}
+        m={}
         for i in range(len(nums)):
-            if nums[i] in maps:
-                return maps[nums[i]],i
-                
-            find=target-nums[i]
-            if find not in maps:
-                maps[find]=i
-            
-                    
-        
+            if nums[i] in m:
+                return m[nums[i]],i
+            comp=target-nums[i]
+            m[comp]=i
