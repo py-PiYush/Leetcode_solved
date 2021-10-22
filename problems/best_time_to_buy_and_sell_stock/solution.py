@@ -1,17 +1,18 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        
-        '''O(n^2)'''
-        # profit=0
-        # for i in range(len(prices)-1):
-        #     profit=max(profit,max([prices[j]-prices[i] for j in range(i+1,len(prices))]))
-        # return profit
-        
-        minprice,maxprofit=sys.maxsize,0
-        for i in range(len(prices)):
-            if prices[i]<minprice:
-                minprice=prices[i]
-            elif prices[i]-minprice>maxprofit:
-                maxprofit=prices[i]-minprice
-        return maxprofit
+        # maxProfit=0
+        # min_,max_=0,0
+        # while max_<len(prices):
+        #     if prices[min_]>prices[max_]:
+        #         min_=max_
+        #     profit=prices[max_]-prices[min_]
+        #     maxProfit=max(maxProfit, profit)
+        #     max_+=1
+        # return maxProfit
+        maxCur,maxSoFar=0,0
+        for i in range(1,len(prices)):
+            maxCur+=prices[i]-prices[i-1]
+            maxCur=max(0,maxCur)
+            maxSoFar=max(maxCur,maxSoFar)
+        return maxSoFar
             
