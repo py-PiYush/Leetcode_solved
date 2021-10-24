@@ -8,16 +8,15 @@ class Solution:
     def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         
         '''Recursive'''
-        # node=root
-        # if node is None: 
-        #     return None
-        # if node.val==val:
-        #     return node
-        # if node.val>val:
-        #     n=self.searchBST(node.left,val)
-        # elif node.val<val:
-        #     n=self.searchBST(node.right, val)
-        # return n
+        if root is None:
+            return None
+        if root.val==val:
+            return root
+        if root.val>val:
+            n=self.searchBST(root.left,val)
+        elif root.val<val:
+            n=self.searchBST(root.right, val)
+        return n
     
         '''iterative'''
         
@@ -35,12 +34,12 @@ class Solution:
         # return None
         
         '''No need of stack'''
-        curr=root
-        while curr:
-            if curr.val==val:
-                return curr
-            elif curr.val<val:
-                curr=curr.right
-            else:
-                curr=curr.left
-        return None
+        # curr=root
+        # while curr:
+        #     if curr.val==val:
+        #         return curr
+        #     elif curr.val<val:
+        #         curr=curr.right
+        #     else:
+        #         curr=curr.left
+        # return None
