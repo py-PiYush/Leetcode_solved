@@ -1,9 +1,8 @@
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
-        if n<1:
-            return False
-        cnt=0
-        while(n):
-            cnt+=1
-            n=n&(n-1)
-        return cnt==1
+        return n>0 and n&(n-1)==0
+    
+        '''recursive'''
+        if n==1: return True
+        if n<1: return False
+        return self.isPowerOfTwo(n/2)
