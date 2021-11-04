@@ -5,51 +5,7 @@
 #         self.next = next
 class Solution:
     '''---REVERSE AND COMPARE---'''
-#     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-#         node=head
-#         # node=node.next
-#         # self.printList(head)
-#         list_clone=self.clone(node)
-#         # self.printList(list_clone)
-        
-#         self.printList(head)
-#         print('')
-#         reversed=self.reverse(list_clone)
-#         self.printList(head)
-#         # self.printList(reversed)
-#         # self.printList(head)
-#         return self.isEqual(head, reversed)
-    
-#     def clone(self,node):
-#         new=dummy=ListNode(0)
-#         while node:
-#             new.next=node
-#             node=node.next
-#             new=new.next
-#         return dummy.next
-    
-#     def reverse(self, node):
-#         prev=None
-#         curr=node
-#         while curr:
-#             next_node=curr.next
-#             curr.next=prev
-#             prev=curr
-#             curr=next_node
-#         return prev
-    
-#     def isEqual(self, node1, node2):
-#         while node1 and node2:
-#             if node1.val!=node2.val:
-#                 return False
-#             return True
-        
-#     def printList(self, node):
-#         while node:
-#             print(node.val, end=' ')
-#             node=node.next
-
-
+   
     def isPalindrome(self, head: ListNode) -> bool:
         if head is None:
             return True
