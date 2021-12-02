@@ -17,12 +17,6 @@ class Solution:
             even.next=even.next.next
             even=even.next
             
-        odd.next=dummy
-        
-        
-        
-        
-        
-                
+        odd.next=dummy       
         return head
         
