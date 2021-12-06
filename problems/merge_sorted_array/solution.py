@@ -13,12 +13,13 @@ class Solution:
             if temp[p1]<=nums2[p2]:
                 nums1[final]=temp[p1]
                 p1+=1
-                final+=1
             elif temp[p1]>nums2[p2]:
                 nums1[final]=nums2[p2]
                 p2+=1
-                final+=1
+            final+=1
+            
         if p1<len(temp):
             nums1[final:]=temp[p1:]
+            
         elif p2<len(nums2):
             nums1[final:]=nums2[p2:]
