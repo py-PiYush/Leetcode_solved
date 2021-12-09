@@ -14,12 +14,21 @@ class Solution:
         #     start+=1
         #     end-=1
         
+        
+        for i in range(len(s)//2):
+            s[i],s[~i]=s[~i],s[i]
         '''Recursive'''
-        def recurse(s, start, end):
-            if start>=end:
-                return
-            s[start], s[end]=s[end], s[start]
-            recurse(s, start+1, end-1)
+        
+        # l=len(s)
+        # if l<2:
+        #     return s
+        # return self.reverseString(s[l//2:])+self.reverseString(s[:l//2])
+    
+#         def recurse(s, start, end):
+#             if start>=end:
+#                 return
+#             s[start], s[end]=s[end], s[start]
+#             recurse(s, start+1, end-1)
             
-        start, end=0, len(s)-1
-        recurse(s, start, end)
+#         start, end=0, len(s)-1
+#         recurse(s, start, end)
