@@ -1,6 +1,5 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        
         n,z,p=[],[],[]
         res=set()
         for num in nums:
