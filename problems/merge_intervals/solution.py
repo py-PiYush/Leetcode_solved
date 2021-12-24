@@ -8,5 +8,4 @@ class Solution:
                 res.append([start,end])
             else:
                 res[-1][1]=max(res[-1][1],end)
-         
         return res
