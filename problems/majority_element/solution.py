@@ -11,14 +11,15 @@ class Solution:
 #                 return i
         
         #Boyer-Moore:
-        # def bm():
-        #     cnt=0
-        #     for i in nums:
-        #         if cnt==0:
-        #             ans=i
-        #         cnt+=(1 if i==ans else -1)
-        #     return ans
-        # return bm()
+        def bm():
+            cnt=0
+            for i in nums:
+                if cnt==0:
+                    ans=i
+                cnt+=(1 if i==ans else -1)
+            return ans
+        return bm()
+        
         
         
                 
