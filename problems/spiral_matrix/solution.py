@@ -1,40 +1,76 @@
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        ''' 1 '''
+        result = []
+        if not matrix or not matrix[0]:
+            return result
+        compass = ((0, 1), (1, 0), (0, -1), (-1, 0))
+        direction = 0
+        steps = [len(matrix[0]), len(matrix) - 1]
+        row, col = 0, -1
+        while steps[direction%2]:
+            for i in range(steps[direction%2]):
+                row += compass[direction][0]
+                col += compass[direction][1]
+                result.append(matrix[row][col])
+            steps[direction%2] -= 1
+            direction = (direction + 1) % 4
+        return result
         
-        # return matrix and [*matrix.pop(0)] + self.spiralOrder([*zip(*matrix)][::-1])
         
-        height = len(matrix)
-        width = len(matrix[0])
         
-        top = 0
-        bottom = height - 1
-        left = 0
-        right = width - 1
         
-        ans = []
-        while top < bottom and left < right:
-            for col in range(left, right):
-                ans.append(matrix[top][col])
+        ''' 2 '''
+        res=[]
+        left, right, top, bottom = 0, len(matrix[0])-1, 0, len(matrix)-1
+        direction=0
+        
+        while left<=right and top<=bottom:
+            # traverse right
+            if direction == 0:
+                for i in range(left, right+1):
+                    res.append(matrix[top][i])
+                
+                top+=1 # topmost row traversed
+                
+            #traverse down
+            elif direction == 1:
+                for i in range(top, bottom+1):
+                    res.append(matrix[i][right])
+                    
+                right-=1 # rightmost column traversed
             
-            for row in range(top, bottom):
-                ans.append(matrix[row][right])
             
-            for col in range(right, left, -1):
-                ans.append(matrix[bottom][col])
+            #traverse left
+            elif direction==2:
+                for i in range(right, left-1, -1):
+                    res.append(matrix[bottom][i])
+                    
+                bottom-=1 # bottommost row traversed
             
-            for row in range(bottom, top, -1):
-                ans.append(matrix[row][left])
             
-            top += 1
-            bottom -= 1
-            left += 1
-            right -= 1
+            #traverse upwards
+            else:
+                for i in range(bottom, top-1, -1):
+                    res.append(matrix[i][left])
+                
+                left+=1 # leftmost column traversed
+            
+            direction=(direction+1)%4
+        return res
         
-        # If a matrix remain inside it is either a 1xn or a mx1
-        # a linear scan will return the same order as spiral for these
-        if len(ans) < height*width:
-            for row in range(top, bottom+1):
-                for col in range(left, right+1):
-                    ans.append(matrix[row][col])
         
-        return ans
+        
+        
+        '''???'''
+        return matrix and [*matrix.pop(0)] + self.spiralOrder([*zip(*matrix)][::-1])
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
