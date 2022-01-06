@@ -6,27 +6,29 @@
 #         self.right = right
 class Solution:
     def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
-        
+        if root.left is None and root.right is None:
+            return False
+        res=[]
+        self.inorder(root, res)
+        print(res)
+        return self.twoSum(res, k)
+    
+    def inorder(self,node, res):
+        if node:
+            self.inorder(node.left, res)
+            res.append(node.val)
+            self.inorder(node.right, res)
             
-        def inorder(root):
-            if root:
-                left=inorder(root.left)
-                if (k-root.val) in set_:
-                    return True
-                set_.add(root.val)
-                right=inorder(root.right)
-                return left or right
+    def twoSum(self,lst, target):
+        left, right=0,len(lst)-1
+        while left<right:
+            sum_= lst[left]+lst[right]
+            if sum_==target:
+                return True
+            elif sum_<target:
+                left+=1
+            else:
+                right-=1
+        return False
             
-        def preorder(root):
-            if root:
-                if k-root.val in set_:
-                    return True
-                set_.add(root.val)
-                return preorder(root.left) or preorder(root.right)
-
-        set_=set()
-       
-      
-        return preorder(root)
-        
         
