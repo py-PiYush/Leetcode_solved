@@ -18,9 +18,7 @@ class Solution:
                 return
             
             for i in range(first, n):
-                cur.append(nums[i])
-                backtrack(i+1, cur)
-                cur.pop()
+                backtrack(i+1, cur+[nums[i]])
         
         ans=[]
         nums=list(range(1,n+1))
