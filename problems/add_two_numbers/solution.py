@@ -25,7 +25,6 @@ class Solution:
             sum_=sum_.next
         if carry==1:
             sum_.next=ListNode(carry)
-            
-       
+        
         return head.next
         
