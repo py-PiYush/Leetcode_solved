@@ -2,10 +2,9 @@ class Solution:
     def partition(self, s: str) -> List[List[str]]:
     
         
-        def isPalindrome(x):
-            i,j=0,len(x)-1
+        def isPalindrome(i,j):
             while i< j:
-                if x[i]!=x[j]:
+                if s[i]!=s[j]:
                     return False
                 i+=1
                 j-=1
@@ -16,9 +15,8 @@ class Solution:
                 ans.append(res[:])
                 return
             for i in range(idx, len(s)):
-                curString=s[idx:i+1]
-                if isPalindrome(curString):
-                    helper(i+1, res+[curString])
+                if isPalindrome(idx, i):
+                    helper(i+1, res+[s[idx:i+1]])
         
         ans=[]
         helper(0,[])
