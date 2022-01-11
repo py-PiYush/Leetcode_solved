@@ -24,32 +24,32 @@ class Solution:
         
         '''---APPROACH 1---'''
         pa,pb=headA, headB
-#         sa,sb=0,0
-#         while True:
-#             if pa is None:
-#                 sb=self.skipB(pb)
-#                 break
-#             elif pb is None:
-#                 sa=self.skipA(pa)
-#                 break
-#             pa=pa.next
-#             pb=pb.next
+        sa,sb=0,0
+        while True:
+            if pa is None:
+                sb=self.skipB(pb)
+                break
+            elif pb is None:
+                sa=self.skipA(pa)
+                break
+            pa=pa.next
+            pb=pb.next
         
-#         pa,pb=headA, headB
-#         if sa:
-#             while sa:
-#                 pa=pa.next
-#                 sa-=1
-#         if sb:
-#             while sb:
-#                 pb=pb.next
-#                 sb-=1
+        pa,pb=headA, headB
+        if sa:
+            while sa:
+                pa=pa.next
+                sa-=1
+        if sb:
+            while sb:
+                pb=pb.next
+                sb-=1
                 
-#         while pa and pb:
-#             if pa==pb:
-#                 return pa
-#             pa=pa.next
-#             pb=pb.next
+        while pa and pb:
+            if pa==pb:
+                return pa
+            pa=pa.next
+            pb=pb.next
         
         
     
