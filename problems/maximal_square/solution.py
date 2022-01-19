@@ -1,26 +1,24 @@
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
         
-        '''Brute Force'''
-        if not matrix: return
-        rows, cols=len(matrix), len(matrix[0])
-        maxSq=0
-        for i in range(rows):
-            for j in range(cols):
+        '''Bottom up dp'''
+        
+        m, n = len(matrix), len(matrix[0])
+        dp=[[0]*n for _ in range(m)]
+        maxSqLen=0
+        for col in range(n):
+            if matrix[0][col]=='1':
+                dp[0][col]=1
+                maxSqLen = 1
+        for row in range(m):
+            if matrix[row][0]=='1':
+                dp[row][0]=1
+                maxSqLen=1
+                
+        for i in range(1, m):
+            for j in range(1, n):
                 if matrix[i][j]=='1':
-                    sq=1
-                    flag=True
-                    while sq+i<rows and sq+j<cols and flag:
-                        for k in range(j, sq+j+1):
-                            if matrix[i+sq][k]=='0':
-                                flag=False
-                                break
-                        for k in range(i, sq+i+1):
-                            if matrix[k][j+sq]=='0':
-                                flag=False
-                                break
-                        if flag:
-                            sq+=1
-                        
-                    maxSq=max(maxSq, sq)
-        return maxSq**2
+                    dp[i][j]=min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]) + 1
+                    maxSqLen = max(maxSqLen, dp[i][j])
+        
+        return maxSqLen**2
