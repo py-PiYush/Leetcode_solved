@@ -16,7 +16,7 @@ class Solution:
         #     nums.insert(0,last)
         
         
-        '''Recursion'''
+        '''Reversion'''
         def numReverse(start, end):
             while start < end:
                 nums[start], nums[end] = nums[end], nums[start]
