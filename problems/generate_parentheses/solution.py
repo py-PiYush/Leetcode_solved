@@ -7,6 +7,7 @@ class Solution:
             if not right:    parens += p,
             return parens
         return generate('', n, n)
+    
         
 #         def helper(S=[], l=0, r=0):
 #             if len(S)==2*n:
