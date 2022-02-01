@@ -7,19 +7,17 @@
 
 class Solution:
     def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
-        if n == 0:
-            return []
-        return self.dfs(1, n+1)
+        def dfs(left, right):
+            if left > right: return [None]
+            if left == right: return [TreeNode(left)]
+            ans = []
+            for root in range(left, right+1):
+                leftNodes = dfs(left, root - 1)
+                rightNodes = dfs(root+1, right)
+                for leftNode in leftNodes:
+                    for rightNode in rightNodes:
+                        rootNode = TreeNode(root, leftNode, rightNode)
+                        ans.append(rootNode)
+            return ans
         
-    def dfs(self, start, end):
-        if start == end:
-            return None
-        result = []
-        for i in range(start, end):
-            for l in self.dfs(start, i) or [None]:
-                for r in self.dfs(i+1, end) or [None]:
-                    node = TreeNode(i)
-                    node.left, node.right  = l, r
-                    result.append(node)
-        return result
-        
+        return dfs(1, n)
