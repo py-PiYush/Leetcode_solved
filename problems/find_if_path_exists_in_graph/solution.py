@@ -35,6 +35,28 @@ class Solution:
         
         
         
+        ''' BFS '''
+        adj_list=[[] for _ in range(n)]
+        seen=set()
+        
+        for a,b in edges:
+            adj_list[a].append(b)
+            adj_list[b].append(a)
+            
+        queue=deque([source])
+        while queue:
+            node=queue.popleft()
+            if node==destination:
+                return True
+            if node in seen:
+                continue
+            seen.add(node)
+            for neighbour in adj_list[node]:
+                queue.append(neighbour)
+        
+        return False
+        
+        
         
         
         ''' iterative dfs (card sol)'''
