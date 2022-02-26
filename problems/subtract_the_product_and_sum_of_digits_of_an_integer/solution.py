@@ -1,10 +1,10 @@
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
-        lst=map(int,str(n))
-        sum=0
-        product=1
-        for i in lst:
-            sum+=i
-            product*=i
-        return product-sum
+        sum, prod = 0, 1
+        while n:
+            digit = n % 10
+            sum += digit
+            prod *= digit
+            n //= 10
+        return prod - sum
         
