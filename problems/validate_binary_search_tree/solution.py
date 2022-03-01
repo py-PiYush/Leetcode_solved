@@ -7,14 +7,14 @@
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         
-#         def validate(node, low=-math.inf, high=math.inf):
-#             if not node:
-#                 return True
-#             if node.val<=low or node.val>=high:
-#                 return False
-#             return validate(node.left,low,node.val) and validate(node.right, node.val, high)
+        def validate(node, low=-math.inf, high=math.inf):
+            if not node:
+                return True
+            if node.val<=low or node.val>=high:
+                return False
+            return validate(node.left,low,node.val) and validate(node.right, node.val, high)
         
-#         return validate(root)
+        return validate(root)
     
     
         '''Iterative inorder traversal'''
@@ -33,18 +33,5 @@ class Solution:
         
         
         
-        '''Wrong'''
-        # if root:
-        #     left =self.isValidBST(root.left)
-        #     right= self.isValidBST(root.right)
-        #     if left and right:
-        #         if root.left and root.right and not (root.left.val<root.val or root.right.val>root.val):
-        #             return False
-        #         if root.left and not root.left.val<root.val:
-        #             return False
-        #         if root.right and not root.val<root.right.val:
-        #             return False
-        #         return True
-        #     return False
-        # return True
+    
             
