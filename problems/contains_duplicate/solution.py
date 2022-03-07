@@ -1,13 +1,13 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        
-        return len(set(nums))<len(nums)
-        
-#         from collections  import Counter
-        
-#         cnt=Counter(nums)
-#         for i in cnt.values():
-#             if i>1:
-#                 return True
-#         return False
+        # return len(nums)>len(set(nums))
     
+    
+        '''---USING SET---'''
+        seen=set()
+        for i in nums:
+            if i in seen:
+                return True
+            else:
+                seen.add(i)
+        return False
