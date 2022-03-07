@@ -6,4 +6,4 @@ class Solution:
         
     def sortByBits(self, arr: List[int]) -> List[int]:
         arr.sort()
-        return(sorted(arr,key=self.count1))
+        return(sorted(arr,key=(self.count1)))
