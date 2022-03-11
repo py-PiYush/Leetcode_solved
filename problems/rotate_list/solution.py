@@ -15,7 +15,7 @@ class Solution:
         k%=length
         for _ in range(length-k-1):
             front=front.next
-       
+            
         last.next=head
         head=front.next
         front.next=None
