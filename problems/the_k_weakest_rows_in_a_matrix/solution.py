@@ -14,7 +14,6 @@ class Solution:
             return lo
         
         oneIdx=[[count_ones(row),i] for i,row in enumerate(mat)]
-        print(heapq.nsmallest(k, oneIdx))
         return [ res[1] for res in heapq.nsmallest(k, oneIdx)]
         
         
