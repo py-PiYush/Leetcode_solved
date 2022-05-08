@@ -11,13 +11,16 @@ class Solution:
         
         cnt=0
         max_=0
-        for i in range(len(nums)):
-            if int(nums[i])==1:
-                cnt+=1
-                max_=max(max_,cnt)
-                print(max_)
-            else:
-                cnt=0
-                
-        max_=max(max_,cnt)
+        for num in nums:
+            cnt=[cnt+1, 0][num==0]
+            max_=max(cnt,max_)
         return max_
+#         for i in range(len(nums)):
+#             if int(nums[i])==1:
+#                 cnt+=1
+#                 max_=max(max_,cnt)
+#             else:
+#                 cnt=0
+                
+#         max_=max(max_,cnt)
+#         return max_
