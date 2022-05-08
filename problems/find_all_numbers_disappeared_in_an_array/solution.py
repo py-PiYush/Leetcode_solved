@@ -17,7 +17,3 @@ class Solution:
             if i not in maps:
                 res.append(i)
         return res
-       
-       
-        
-            
