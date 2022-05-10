@@ -1,5 +1,15 @@
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        ''' (1-indexed) Visit all the indexes present in nums and mark them negative 
+            The index at which elem remains positive will be absent.
+        
+        '''
+        for num in nums:
+            index = abs(num)-1
+            nums[index] = -abs(nums[index])
+        
+        return [i+1 for i, n in enumerate(nums) if n>0]
+        
         
         #sets
         res=[]
