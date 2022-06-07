@@ -1,18 +1,39 @@
-class Solution(object):
-    def sortColors(self, nums):
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
         """
-        :type nums: List[int]
-        :rtype: None Do not return anything, modify nums in-place instead.
+        Do not return anything, modify nums in-place instead.
         """
-        start, move, end = 0, 0, len(nums)-1
-        while move<=end:
-            if nums[move]<1:
-                nums[move], nums[start] = nums[start], nums[move]
+        self.dnf(nums)
+        
+    def dnf(self,nums):
+        def swap(nums,i,j):
+            nums[i],nums[j]=nums[j],nums[i]
+            
+        start,white=0,0
+        pivot=1
+        end=len(nums)-1
+        while white<=end:
+            if nums[white]<pivot:
+                swap(nums,start,white)
                 start+=1
-                move+=1
-            elif nums[move]>1:
-                nums[move], nums[end] = nums[end], nums[move]
+                white+=1
+                
+            elif nums[white]>pivot:
+                swap(nums,white,end)
                 end-=1
             else:
-                move+=1
-        return nums
+                white+=1
+                
+                
+            
+#         def insertion(nums):
+#             for i in range(1,len(nums)):
+#                 key=nums[i]
+#                 j=i-1
+#                 while j>=0 and key<nums[j]:
+#                     nums[j+1]=nums[j]
+#                     j-=1
+#                 nums[j+1]=key
+            
+#         insertion(nums)
+                    
