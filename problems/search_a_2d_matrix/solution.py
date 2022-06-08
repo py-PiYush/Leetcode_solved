@@ -12,7 +12,7 @@ class Solution:
                 row=matrix[mid]
                 break
                 
-        print(row)
+        # print(row)
         if row==-1:
             return False
         
