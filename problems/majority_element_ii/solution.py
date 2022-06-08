@@ -26,6 +26,8 @@ class Solution:
                     if nums.count(n) > len(nums) // 3]
         
         
+        
+        '''mine boyer moore'''
         def findCandidates():
             can1, can2 = -1, -1
             cnt1, cnt2 = 0, 0
