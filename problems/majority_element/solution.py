@@ -12,7 +12,7 @@ class Solution:
         
         #Boyer-Moore:
         def bm():
-            cnt=0
+            cnt=ans=0
             for i in nums:
                 if cnt==0:
                     ans=i
