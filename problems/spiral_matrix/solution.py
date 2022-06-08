@@ -1,26 +1,6 @@
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         ''' 1 '''
-        result = []
-        if not matrix or not matrix[0]:
-            return result
-        compass = ((0, 1), (1, 0), (0, -1), (-1, 0))
-        direction = 0
-        steps = [len(matrix[0]), len(matrix) - 1]
-        row, col = 0, -1
-        while steps[direction%2]:
-            for i in range(steps[direction%2]):
-                row += compass[direction][0]
-                col += compass[direction][1]
-                result.append(matrix[row][col])
-            steps[direction%2] -= 1
-            direction = (direction + 1) % 4
-        return result
-        
-        
-        
-        
-        ''' 2 '''
         res=[]
         left, right, top, bottom = 0, len(matrix[0])-1, 0, len(matrix)-1
         direction=0
@@ -58,6 +38,23 @@ class Solution:
             
             direction=(direction+1)%4
         return res
+    
+        ''' 1 '''
+        result = []
+        if not matrix or not matrix[0]:
+            return result
+        compass = ((0, 1), (1, 0), (0, -1), (-1, 0))
+        direction = 0
+        steps = [len(matrix[0]), len(matrix) - 1]
+        row, col = 0, -1
+        while steps[direction%2]:
+            for i in range(steps[direction%2]):
+                row += compass[direction][0]
+                col += compass[direction][1]
+                result.append(matrix[row][col])
+            steps[direction%2] -= 1
+            direction = (direction + 1) % 4
+        return result
         
         
         
