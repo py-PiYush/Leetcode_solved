@@ -8,14 +8,22 @@ class Solution:
         #             return i
         #     return len(nums)
         
-        l,r=0,len(nums)
-        while l<r:
-            mid=l+ (r-l)//2
-            if nums[mid]>=target:
-                r=mid
+        def condition(k):
+            if nums[k]>=target:
+                return True
+            return False
+        
+        left, right = 0, len(nums)
+        while left<right:
+            mid = left + (right - left)//2
+            if condition(mid):
+                right=mid
             else:
-                l=mid+1
-        return l
+                left=mid+1
+        return left
+
+    
+        
         
             
             
