@@ -5,53 +5,33 @@
 #         self.next = None
 
 class Solution:
-    def skipA(self,pa):
-        sa=0
-        while pa:
-            sa+=1
-            pa=pa.next
-        return sa
-    
-    def skipB(self, pb):
-        sb=0
-        while pb:
-            sb+=1
-            pb=pb.next
-        return sb
     
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
         
         
         '''---APPROACH 1---'''
         pa,pb=headA, headB
-        sa,sb=0,0
-        while True:
-            if pa is None:
-                sb=self.skipB(pb)
-                break
-            elif pb is None:
-                sa=self.skipA(pa)
-                break
-            pa=pa.next
-            pb=pb.next
-        
-        pa,pb=headA, headB
-        if sa:
-            while sa:
-                pa=pa.next
-                sa-=1
-        if sb:
-            while sb:
-                pb=pb.next
-                sb-=1
-                
         while pa and pb:
             if pa==pb:
                 return pa
-            pa=pa.next
-            pb=pb.next
+            pa = pa.next
+            pb = pb.next
         
+        diff = headA if pa else headB
+        pointer = pa if pa else pb
         
+        while pointer:
+            diff = diff.next
+            pointer = pointer.next
+        
+        pointer2=headB if pa else headA
+        
+        while diff and pointer2:
+            if diff == pointer2:
+                return diff
+            diff=diff.next
+            pointer2=pointer2.next
+        return None
     
     
         '''---BETTER---'''
@@ -62,13 +42,13 @@ class Solution:
     
     
         '''---USING SET---'''
-        seen=set()
-        while pa:
-            seen.add(pa)
-            pa=pa.next
-        while pb:
-            if pb in seen:
-                return pb
-            pb=pb.next
+        # seen=set()
+        # while pa:
+        #     seen.add(pa)
+        #     pa=pa.next
+        # while pb:
+        #     if pb in seen:
+        #         return pb
+        #     pb=pb.next
         
             
