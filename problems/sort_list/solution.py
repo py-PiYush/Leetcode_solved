@@ -4,6 +4,8 @@
 #         self.val = val
 #         self.next = next
 class Solution:
+    
+    ''' Merge Sort on Linked List'''
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head is None or head.next is None: return head
         mid = self.middleNode(head)
