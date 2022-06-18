@@ -18,13 +18,18 @@ class MyLinkedList:
         """
         Get the value of the index-th node in the linked list. If the index is invalid, return -1.
         """
-        if index<0 or index>=self.length:
-            return -1
-        curr=self.head
-        while index!=0:
-            curr=curr.next
+        # if index<0 or index>=self.length:
+        #     return -1
+        # curr=self.head
+        # while index!=0:
+        #     curr=curr.next
+        #     index-=1
+        # return curr.val
+        cur = self.head
+        while cur and index:
+            cur = cur.next
             index-=1
-        return curr.val
+        return cur.val if cur else -1
         
         
 
