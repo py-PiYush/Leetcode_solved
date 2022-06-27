@@ -12,9 +12,10 @@ class Solution:
                 if i>0 and nums[i]==nums[i-1]:
                     continue
                 dfs(nums[:i]+nums[i+1:], path+[nums[i]])
-                
+        nums.sort()    
         ans=[]
         dfs(nums, [])
+        return ans
         
         
         '''Hash table'''
