@@ -1,5 +1,20 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
+        @lru_cache()
+        def recur(prev, idx, size):
+            if idx==size:
+                return 0
+            
+            if prev:
+                return recur(False, idx+1, size)
+            else:
+                return max(nums[idx] + recur(True, idx+1, size), recur(False, idx+1, size))
+        
+        if len(nums)<=2: return max(nums)
+        return max(nums[0]+recur(True, 1, len(nums)-1), recur(False, 1, len(nums)))
+        
+        
+        
         def rob_helper(nums):
             dp1, dp2 = 0, 0
             for num in nums:
