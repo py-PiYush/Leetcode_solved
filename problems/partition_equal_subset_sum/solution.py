@@ -1,6 +1,23 @@
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
         
+        '''Memoization'''
+        @lru_cache(None)
+        def recur(idx, target):
+            if target == 0: return True
+            if idx == len(nums):
+                return False
+            if nums[idx]<=target:
+                return recur(idx+1, target - nums[idx]) or recur(idx+1, target)
+            else:
+                return recur(idx+1, target)
+            
+        total = sum(nums)
+        if total%2: return False
+        return recur(0,total//2)
+        
+        
+        
         '''--------- Bitmask -------------'''
         total = sum(nums)
         if total & 1 : return False
