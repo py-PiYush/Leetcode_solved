@@ -1,5 +1,7 @@
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        ''' partition in 2 subsets s.t. s1-s2=target'''
+        
         total, n = sum(nums), len(nums)
         if (total+target)%2 or abs(target)>total: return 0
         tgt = (total+target)//2
