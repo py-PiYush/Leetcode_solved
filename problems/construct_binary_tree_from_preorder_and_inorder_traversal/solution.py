@@ -6,6 +6,11 @@
 #         self.right = right
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        
+        ''' Preorder: first value is root value
+            Inorder : used to determine recurse left OR right
+        '''
+        
         idxMap={v:i for i,v in enumerate(inorder)}
         self.index=0
         
